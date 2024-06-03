@@ -1,0 +1,21 @@
+name: Lint with Trunk
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+  checks: write
+
+jobs:
+  Test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Lint with Trunk
+        uses: trunk-io/trunk-action@v1
