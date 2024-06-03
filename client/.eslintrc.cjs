@@ -1,0 +1,40 @@
+module.exports = {
+  root: true,
+  env: { browser: true, es2020: true },
+  extends: [
+    "airbnb",
+    "airbnb-typescript",
+    "plugin:react/recommended",
+    "eslint:recommended",
+    "plugin:prettier/recommended",
+    "plugin:@typescript-eslint/recommended-type-checked",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "plugin:react/jsx-runtime",
+    "plugin:react-hooks/recommended",
+  ],
+  ignorePatterns: ["dist", ".eslintrc.cjs", "vite.config.ts"],
+  parser: "@typescript-eslint/parser",
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
+    tsconfigRootDir: __dirname,
+    project: true,
+  },
+  plugins: [
+    "react",
+    "@typescript-eslint",
+    "prettier",
+    "import",
+    "react-refresh",
+  ],
+  rules: {
+    "react/jsx-no-target-blank": "off",
+    "react-refresh/only-export-components": [
+      "warn",
+      { allowConstantExport: true },
+    ],
+    "react/jsx-filename-extension": [1, { extensions: [".tsx"] }],
+    "func-names": 0,
+  },
+};
