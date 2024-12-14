@@ -11,11 +11,18 @@ permissions:
   checks: write
 
 jobs:
-  Test:
+  Lint:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v4
 
-      - name: Lint with Trunk
+      - name: Lint client folder with Trunk
         uses: trunk-io/trunk-action@v1
+        with:
+          working-directory: client
+
+      - name: Lint server folder with Trunk
+        uses: trunk-io/trunk-action@v1
+        with:
+          working-directory: server
