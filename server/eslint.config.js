@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unsafe-member-access */
-/* eslint-disable @typescript-eslint/no-unsafe-assignment */
-
 import js from '@eslint/js';
 import airbnbBase from 'eslint-config-airbnb-base';
 import airbnbTypeScript from 'eslint-config-airbnb-typescript';
@@ -13,7 +10,7 @@ import typescriptParser from '@typescript-eslint/parser';
 export default [
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
-    ignores: ['node_modules/**', 'dist/**'], // Ignore common folders
+    ignores: ['node_modules/**', 'dist/**', 'eslint.config.js'], // Ignore common folders
     languageOptions: {
       ecmaVersion: 'latest', // Enable modern ECMAScript features
       sourceType: 'module', // Use ES modules
