@@ -1,4 +1,4 @@
-name: CI Workflow
+name: Lint and Format
 
 on:
   push:
@@ -10,44 +10,17 @@ permissions:
   contents: read
 
 jobs:
-  ci:
+  server:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
 
     steps:
-      # Step 1: Check out the repository
-      - name: Checkout Repository
-        uses: actions/checkout@v4
-
-      # Step 2: Install Bun
-      - name: Set up Bun
-        run: |
-          curl -fsSL https://bun.sh/install | bash
-          export PATH="$HOME/.bun/bin:$PATH"
-
-      # Step 3: Install dependencies for client
-      - name: Install Dependencies - Client
-        working-directory: client
-        run: bun install
-
-      # Step 4: Install dependencies for server
-      - name: Install Dependencies - Server
-        working-directory: server
-        run: bun install
-
-      # Step 5: Lint client folder with ESLint
-      - name: Lint Client
-        working-directory: client
-        run: bun run lint
-
-      # Step 6: Lint server folder with ESLint
-        working-directory: server
-        run: bun run lint
-
-      # Step 7: Check formatting with Prettier - Client
-      - name: Check Formatting - Client
-        working-directory: client
-        run: bun run format:check
-
-      # Step 8: Check formatting with Prettier - Server
-        working-directory: server
-        run: bun run format:check
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: "latest"
+      - run: bun install
+      - run: bun run lint
+      - run: bun run format:check
