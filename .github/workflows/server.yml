@@ -1,4 +1,4 @@
-name: Server Workflow
+name: Server
 
 on:
   push:
