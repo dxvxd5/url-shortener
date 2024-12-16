@@ -16,6 +16,6 @@ jobs:
       path: ./client
 
   tests:
-    uses: ./.github/workflows/common-vitest.yml
+    uses: ./.github/workflows/common-tests.yml
     with:
       path: ./client
