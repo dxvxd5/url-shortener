@@ -11,12 +11,18 @@ import typescriptParser from '@typescript-eslint/parser';
 export default [
   {
     files: ['**/*.{js,mjs,cjs,ts}'],
-    ignores: ['node_modules/**', 'dist/**', 'eslint.config.js'], // Ignore common folders
+    ignores: [
+      'node_modules/**',
+      'dist/**',
+      'eslint.config.js',
+      'vitest.config.ts',
+    ], // Ignore common folders
     languageOptions: {
       ecmaVersion: 'latest', // Enable modern ECMAScript features
       sourceType: 'module', // Use ES modules
       globals: {
         ...globals.node,
+        ...globals.jest,
       },
       parser: typescriptParser, // Use TypeScript parser
       parserOptions: {
