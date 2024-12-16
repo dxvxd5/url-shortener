@@ -89,7 +89,7 @@ export default [
 
       // General rules
       eqeqeq: 'error', // Enforce strict equality
-      'no-console': ['warn', { allow: ['warn', 'error'] }], // Allow warnings and errors
+      'no-console': 'error',
       'no-debugger': 'error', // Disallow debugger statements
     },
     settings: {
