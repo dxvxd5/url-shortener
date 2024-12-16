@@ -9,13 +9,14 @@ on:
         type: string
 
 jobs:
-  setup:
+  checks:
     runs-on: ubuntu-latest
-    outputs:
-      cache-key: ${{ steps.cache.outputs.cache-hit }}
+    defaults:
+      run:
+        working-directory: ${{ inputs.path }}
 
     steps:
-      # Step 1: Checkout code
+      # Step 1: Checkout the code
       - uses: actions/checkout@v4
 
       # Step 2: Setup Bun
@@ -23,46 +24,18 @@ jobs:
         with:
           bun-version: 'latest'
 
-      # Step 3: Install Dependencies
+      # Step 3: Install dependencies
       - name: Install Dependencies
         run: bun install
-        working-directory: ${{ inputs.path }}
 
-  type-check:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Restore Bun Environment
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 'latest'
-
-      - name: Type Check
+      # Step 4: Type-Check
+      - name: Type-Check
         run: bun run type-check
-        working-directory: ${{ inputs.path }}
 
-  lint:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Restore Bun Environment
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 'latest'
-
+      # Step 5: Lint Code
       - name: Lint Code
         run: bun run lint
-        working-directory: ${{ inputs.path }}
 
-  format:
-    needs: setup
-    runs-on: ubuntu-latest
-    steps:
-      - name: Restore Bun Environment
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: 'latest'
-
+      # Step 6: Check Formatting
       - name: Check Formatting
         run: bun run format:check
-        working-directory: ${{ inputs.path }}
