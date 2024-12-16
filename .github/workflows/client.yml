@@ -1,4 +1,4 @@
-name: Code Quality And Tests
+name: Client Workflow
 
 on:
   push:
@@ -10,22 +10,12 @@ permissions:
   contents: read
 
 jobs:
-  server-code-quality:
-    uses: ./.github/workflows/common-code-quality-checks.yml
-    with:
-      path: ./server
-
-  client-code-quality:
+  code-quality:
     uses: ./.github/workflows/common-code-quality-checks.yml
     with:
       path: ./client
 
-  server-tests:
-    uses: ./.github/workflows/common-vitest.yml
-    with:
-      path: ./server
-
-  client-tests:
+  tests:
     uses: ./.github/workflows/common-vitest.yml
     with:
       path: ./client
