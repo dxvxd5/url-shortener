@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import globals from 'globals';
 import airbnbBase from 'eslint-config-airbnb-base';
 import airbnbTypeScript from 'eslint-config-airbnb-typescript';
 import importPlugin from 'eslint-plugin-import';
@@ -14,6 +15,9 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest', // Enable modern ECMAScript features
       sourceType: 'module', // Use ES modules
+      globals: {
+        ...globals.node,
+      },
       parser: typescriptParser, // Use TypeScript parser
       parserOptions: {
         project: './tsconfig.json', // Link to TypeScript configuration

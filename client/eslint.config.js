@@ -1,3 +1,4 @@
+import globals from 'globals';
 import js from '@eslint/js';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
@@ -19,6 +20,10 @@ export default [
     languageOptions: {
       ecmaVersion: 'latest',
       sourceType: 'module',
+      globals: {
+        ...globals.browser,
+        ...globals.node,
+      },
       parser: typescriptParser,
       parserOptions: {
         ecmaFeatures: {
@@ -26,9 +31,6 @@ export default [
         },
         project: './tsconfig.json', // Ensure type-aware linting
       },
-    },
-    env: {
-      browser: true,
     },
     plugins: {
       react: reactPlugin,
