@@ -1,5 +1,5 @@
 // sum.js
-export function sum(a: number, b: number): string {
+export function sum(a: number, b: number) {
   return a + b;
 }
 
