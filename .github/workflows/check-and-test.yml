@@ -1,0 +1,31 @@
+name: Code Quality And Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  server-code-quality:
+    uses: ./.github/workflows/common/code-quality-checks.yml
+    with:
+      path: ./server
+
+  server-tests:
+    uses: ./.github/workflows/common/vitest.yml
+    with:
+      path: ./server
+
+  client-code-quality:
+    uses: ./.github/workflows/common/code-quality-checks.yml
+    with:
+      path: ./client
+
+  client-tests:
+    uses: ./.github/workflows/common/vitest.yml
+    with:
+      path: ./server

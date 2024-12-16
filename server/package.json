@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "bun --watch ./src/index.ts",
     "lint": "eslint .",
+    "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",

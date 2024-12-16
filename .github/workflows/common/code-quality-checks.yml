@@ -1,0 +1,52 @@
+name: Code Quality Checks
+
+on:
+  workflow_call:
+    inputs:
+      path:
+        description: 'Working directory for the checks'
+        required: true
+        type: string
+
+jobs:
+  install:
+    runs-on: ubuntu-latest
+    outputs:
+      cache-key: ${{ steps.cache.outputs.cache-hit }}
+    steps:
+      # Step 1: Checkout code
+      - uses: actions/checkout@v4
+
+      # Step 2: Setup Bun
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+
+      # Step 3: Install Dependencies
+      - name: Install Dependencies
+        run: bun install
+        working-directory: ${{ inputs.path }}
+
+  type-check:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Type Check
+        run: bun run type-check
+        working-directory: ${{ inputs.path }}
+
+  lint:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Lint Code
+        run: bun run lint
+        working-directory: ${{ inputs.path }}
+
+  format:
+    needs: install
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Formatting
+        run: bun run format:check
+        working-directory: ${{ inputs.path }}

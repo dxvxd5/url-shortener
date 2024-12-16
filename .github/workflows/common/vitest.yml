@@ -1,0 +1,23 @@
+name: Vitest Test Runner
+
+on:
+  workflow_call:
+    inputs:
+      path:
+        description: 'Working directory for the job'
+        required: true
+        type: string
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.path }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+      - run: bun install
+      - run: bun run test
