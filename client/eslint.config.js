@@ -27,6 +27,9 @@ export default [
         project: './tsconfig.json', // Ensure type-aware linting
       },
     },
+    env: {
+      browser: true,
+    },
     plugins: {
       react: reactPlugin,
       import: importPlugin,
