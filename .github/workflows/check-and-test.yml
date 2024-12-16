@@ -1,31 +1,41 @@
-name: Code Quality And Tests
+name: Code Quality Checks
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
-permissions:
-  contents: read
+  workflow_call:
+    inputs:
+      path:
+        description: 'Working directory for the checks'
+        required: true
+        type: string
 
 jobs:
-  server-code-quality:
-    uses: ./.github/workflows/common-code-quality-checks.yml
-    with:
-      path: server
+  checks:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ inputs.path }}
 
-  client-code-quality:
-    uses: ./.github/workflows/common-code-quality-checks.yml
-    with:
-      path: client
+    steps:
+      # Step 1: Checkout the code
+      - uses: actions/checkout@v4
 
-  server-tests:
-    uses: ./.github/workflows/common-vitest.yml
-    with:
-      path: server
+      # Step 2: Setup Bun
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
 
-  client-tests:
-    uses: ./.github/workflows/common-vitest.yml
-    with:
-      path: client
+      # Step 3: Install dependencies
+      - name: Install Dependencies
+        run: bun install
+
+      # Step 4: Lint Code
+      - name: Lint Code
+        run: bun run lint
+
+      # Step 5: Check Formatting
+      - name: Check Formatting
+        run: bun run format:check
+
+      # Step 6: Type-Check
+      - name: Check types
+        run: bun run type-check
