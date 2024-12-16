@@ -11,21 +11,21 @@ permissions:
 
 jobs:
   server-code-quality:
-    uses: ./.github/workflows/common/code-quality-checks.yml
+    uses: ./.github/workflows/common-code-quality-checks.yml
     with:
       path: ./server
 
   server-tests:
-    uses: ./.github/workflows/common/vitest.yml
+    uses: ./.github/workflows/common-vitest.yml
     with:
       path: ./server
 
   client-code-quality:
-    uses: ./.github/workflows/common/code-quality-checks.yml
+    uses: ./.github/workflows/common-code-quality-checks.yml
     with:
       path: ./client
 
   client-tests:
-    uses: ./.github/workflows/common/vitest.yml
+    uses: ./.github/workflows/common-vitest.yml
     with:
       path: ./server
