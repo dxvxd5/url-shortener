@@ -7,8 +7,6 @@ app.get('/', (req, res) => {
   res.send('Hello, world');
 });
 
-console.log('youpi');
-
 app.listen(port, () => {
   return null;
 });
