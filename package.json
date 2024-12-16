@@ -1,0 +1,15 @@
+{
+  "name": "url-shortener",
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "concurrently": "^8.2.2"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "dev": "concurrently \"cd server && bun run dev\" \"cd client && bun run dev\""
+  },
+  "type": "module"
+}

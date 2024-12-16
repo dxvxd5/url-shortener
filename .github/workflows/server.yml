@@ -1,0 +1,21 @@
+name: Server
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  code-quality:
+    uses: ./.github/workflows/common-code-quality-checks.yml
+    with:
+      path: ./server
+
+  tests:
+    uses: ./.github/workflows/common-tests.yml
+    with:
+      path: ./server

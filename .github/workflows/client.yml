@@ -1,0 +1,21 @@
+name: Client
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  code-quality:
+    uses: ./.github/workflows/common-code-quality-checks.yml
+    with:
+      path: ./client
+
+  tests:
+    uses: ./.github/workflows/common-tests.yml
+    with:
+      path: ./client
