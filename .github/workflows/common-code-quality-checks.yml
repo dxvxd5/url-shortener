@@ -9,7 +9,7 @@ on:
         type: string
 
 jobs:
-  install:
+  setup:
     runs-on: ubuntu-latest
     defaults:
       run:
@@ -31,22 +31,37 @@ jobs:
         run: bun install
 
   type-check:
-    needs: install
+    needs: setup
     runs-on: ubuntu-latest
     steps:
+      - name: Restore Bun Environment
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+
       - name: Type Check
         run: bun run type-check
 
   lint:
-    needs: install
+    needs: setup
     runs-on: ubuntu-latest
     steps:
+      - name: Restore Bun Environment
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+
       - name: Lint Code
         run: bun run lint
 
   format:
-    needs: install
+    needs: setup
     runs-on: ubuntu-latest
     steps:
+      - name: Restore Bun Environment
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 'latest'
+
       - name: Check Formatting
         run: bun run format:check
