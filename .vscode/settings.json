@@ -1,4 +1,4 @@
 {
-  "editor.defaultFormatter": "trunk.io",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.formatOnSave": true
 }
