@@ -13,19 +13,19 @@ jobs:
   server-code-quality:
     uses: ./.github/workflows/common-code-quality-checks.yml
     with:
-      path: ./server
-
-  server-tests:
-    uses: ./.github/workflows/common-vitest.yml
-    with:
-      path: ./server
+      path: server
 
   client-code-quality:
     uses: ./.github/workflows/common-code-quality-checks.yml
     with:
-      path: ./client
+      path: client
+
+  server-tests:
+    uses: ./.github/workflows/common-vitest.yml
+    with:
+      path: server
 
   client-tests:
     uses: ./.github/workflows/common-vitest.yml
     with:
-      path: ./server
+      path: client
