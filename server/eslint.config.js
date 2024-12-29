@@ -1,10 +1,10 @@
 import js from '@eslint/js';
-import globals from 'globals';
+import typescriptPlugin from '@typescript-eslint/eslint-plugin';
+import typescriptParser from '@typescript-eslint/parser';
 import airbnbBase from 'eslint-config-airbnb-base';
 import airbnbTypeScript from 'eslint-config-airbnb-typescript';
 import importPlugin from 'eslint-plugin-import';
-import typescriptPlugin from '@typescript-eslint/eslint-plugin';
-import typescriptParser from '@typescript-eslint/parser';
+import globals from 'globals';
 
 /** @type {import('eslint').Linter.Config[]} */
 
@@ -54,15 +54,6 @@ export default [
       '@typescript-eslint/consistent-type-imports': ['warn'],
       '@typescript-eslint/no-unsafe-return': 'error',
 
-      // Import rules
-      'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-          js: 'always',
-          ts: 'always',
-        },
-      ],
       'import/no-extraneous-dependencies': [
         'error',
         { devDependencies: ['**/*.test.ts', '**/*.config.ts'] },
