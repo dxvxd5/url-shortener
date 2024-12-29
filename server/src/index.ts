@@ -1,12 +1,17 @@
-import express from 'express';
+import { cleanEnv, num } from 'envalid';
+import express, { json } from 'express';
+
+const { SERVER_PORT } = cleanEnv(process.env, {
+  SERVER_PORT: num(),
+});
 
 const app = express();
-const port = 8080;
+app.use(json());
 
 app.get('/', (req, res) => {
   res.send('Hello, world');
 });
 
-app.listen(port, () => {
+app.listen(SERVER_PORT, () => {
   return null;
 });
