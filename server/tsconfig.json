@@ -11,6 +11,7 @@
     "allowJs": true,
 
     "types": ["vitest/globals"],
+    "experimentalDecorators": true,
 
     // Bundler mode
     "moduleResolution": "bundler",
