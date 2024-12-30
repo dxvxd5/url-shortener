@@ -6,7 +6,7 @@
     "dev": "bun --watch ./src/index.ts",
     "lint": "eslint .",
     "type-check": "tsc --noEmit",
-    "generate": "graphql-codegen --config codegen.yml",
+    "type-generate": "graphql-codegen --config codegen.yml",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",

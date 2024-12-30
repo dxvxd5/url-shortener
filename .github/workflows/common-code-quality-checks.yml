@@ -28,6 +28,10 @@ jobs:
       - name: Install Dependencies
         run: bun install
 
+      # Step 4: Type generation
+      - name: Type Generation
+        run: bun run type-generate
+
       # Step 4: Type-Check
       - name: Type-Check
         run: bun run type-check
