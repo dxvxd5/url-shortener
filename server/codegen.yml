@@ -1,0 +1,13 @@
+schema: 'http://localhost:3000' # Point to the local .graphql schema file
+# documents: 'src/**/*.graphql' # Optionally, add this if you have query/mutation files
+generates:
+  ./src/graphql/generated/graphql.ts: # Path where generated types will be stored
+    plugins:
+      - 'typescript'
+      - 'typescript-resolvers'
+
+config:
+  useIndexSignature: true
+  contextType: '../../index#GraphQLServerContext'
+  skipTypename: true,
+  useTypeImports: true

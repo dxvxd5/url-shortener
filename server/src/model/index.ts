@@ -62,4 +62,4 @@ const UrlTableManager = new TableManager(Url, {
   createdAt: 'createdAt',
 });
 
-export const UrlManager = UrlTableManager.entityManager();
+export const urlManager = UrlTableManager.entityManager();

@@ -1,0 +1,16 @@
+scalar Date
+
+type Url {
+  shortUrl: String!
+  baseUrl: String!
+  createdAt: Date!
+  lastAccessedAt: Date!
+}
+
+type Query {
+  _empty: String
+}
+
+type Mutation {
+  shortenUrl(url: String!): Url
+}

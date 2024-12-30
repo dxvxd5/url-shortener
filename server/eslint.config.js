@@ -13,6 +13,7 @@ export default [
     files: ['**/*.{js,mjs,cjs,ts}'],
     ignores: [
       'node_modules/**',
+      '**/generated/**',
       'dist/**',
       'eslint.config.js',
       'vitest.config.ts',
@@ -66,6 +67,14 @@ export default [
       'react/prop-types': 'off', // Disable PropTypes checking (use TypeScript instead)
       'react/no-unescaped-entities': 'off', // Allow unescaped entities in JSX
       'react/jsx-curly-brace-presence': 'off', // Disable checking for curly braces in JSX expressions
+    },
+  },
+  {
+    files: ['**/*.d.ts'],
+    rules: {
+      // Disable no-unused-vars for declaration files
+      '@typescript-eslint/no-unused-vars': 'off',
+      'no-unused-vars': 'off',
     },
   },
 ];
