@@ -1,4 +1,3 @@
-import { cleanEnv, url } from 'envalid';
 import { GraphQLScalarType, Kind } from 'graphql';
 
 import { Url } from '../model';
@@ -29,10 +28,6 @@ const dateScalar = new GraphQLScalarType({
   },
 });
 
-const { SERVER_ORIGIN } = cleanEnv(process.env, {
-  SERVER_ORIGIN: url(),
-});
-
 // TODO: Improve URL alias generation algorithm (hashing, etc.)
 const generateAlias = () => {
   return Math.random().toString(36).substring(7);
@@ -46,7 +41,7 @@ export const resolvers: Resolvers = {
       return await dataSources.urlManager.create(
         new Url({
           baseUrl: url,
-          shortUrl: `${SERVER_ORIGIN}/${generateAlias()}`,
+          shortUrl: generateAlias(),
           createdAt: new Date(),
           lastAccessedAt: new Date(),
         })

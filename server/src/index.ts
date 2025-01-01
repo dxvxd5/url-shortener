@@ -9,11 +9,12 @@ import { createServer } from 'http';
 import path from 'path';
 
 import { resolvers } from './graphql/resolvers';
-import { urlManager } from './model';
+import { capturePathAfterAuthority } from './middleware/capturePathAfterAuthority';
+import { type UrlManager, getUrlFromAlias, urlManager } from './model';
 
 export interface GraphQLServerContext {
   dataSources: {
-    urlManager: typeof urlManager;
+    urlManager: UrlManager;
   };
 }
 
@@ -25,6 +26,7 @@ const { SERVER_PORT, SERVER_ORIGIN } = cleanEnv(process.env, {
 const app = express();
 app.use(json());
 app.use(cors());
+app.use(capturePathAfterAuthority);
 
 const httpServer = createServer(app);
 
@@ -51,8 +53,28 @@ app.use(
   })
 );
 
-app.get('*', (req, res) => {
-  res.send(req.pathAfterAuthority);
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+app.get('*', async (req, res) => {
+  // remove the leading slash
+  const urlAlias = req.pathAfterAuthority && req.pathAfterAuthority.slice(1);
+
+  if (!urlAlias) {
+    res.status(400).send();
+    return;
+  }
+
+  try {
+    const url = await getUrlFromAlias(urlAlias);
+
+    if (url) {
+      res.redirect(url.baseUrl);
+    }
+
+    // TODO: Handle 404s more gracefully. Maybe redirect to a 404 page?
+    res.status(404).send();
+  } catch {
+    res.status(500).send();
+  }
 });
 
 httpServer.listen({ port: SERVER_PORT }).on('listening', () => {
