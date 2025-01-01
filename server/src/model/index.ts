@@ -4,6 +4,8 @@ import attribute from 'dynamode/decorators';
 import Entity from 'dynamode/entity';
 import { cleanEnv, str } from 'envalid';
 
+import { isDynamodeNotFoundError } from '../utils';
+
 const {
   DYNAMODB_URL_TABLE_NAME,
   DYNAMODB_ACCESS_KEY_ID,
@@ -62,4 +64,16 @@ const UrlTableManager = new TableManager(Url, {
   createdAt: 'createdAt',
 });
 
+export const getUrlFromAlias = async (alias: string) => {
+  try {
+    return await urlManager.get({ shortUrl: alias });
+  } catch (error) {
+    if (isDynamodeNotFoundError(error)) {
+      return null;
+    }
+    throw error;
+  }
+};
+
 export const urlManager = UrlTableManager.entityManager();
+export type UrlManager = typeof urlManager;
