@@ -18,6 +18,8 @@ export interface GraphQLServerContext {
   };
 }
 
+const SCHEMA_PATH = path.resolve(__dirname, './graphql/schema.graphql');
+
 const { SERVER_PORT, SERVER_ORIGIN } = cleanEnv(process.env, {
   SERVER_PORT: port(),
   SERVER_ORIGIN: url(),
@@ -52,6 +54,10 @@ app.use(
     },
   })
 );
+
+app.get('/schema', (req, res) => {
+  res.sendFile(SCHEMA_PATH);
+});
 
 // eslint-disable-next-line @typescript-eslint/no-misused-promises
 app.get('*', async (req, res) => {
