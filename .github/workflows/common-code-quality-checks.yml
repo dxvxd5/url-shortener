@@ -7,6 +7,21 @@ on:
         description: 'Working directory for the checks'
         required: true
         type: string
+      skip-type-check:
+        description: 'Skip the type-check step'
+        required: false
+        type: boolean
+
+    secrets:
+      API_SERVER_HOST:
+        description: 'API server host'
+        required: false
+      API_GRAPHQL_PATH:
+        description: 'API GraphQL path'
+        required: false
+      API_GRAPHQL_SCHEMA_PATH:
+        description: 'API GraphQL schema path'
+        required: false
 
 jobs:
   checks:
@@ -30,10 +45,16 @@ jobs:
 
       # Step 4: Type generation
       - name: Type Generation
+        env:
+          # Environment variables for the client
+          VITE_API_SERVER_HOST: ${{ secrets.API_SERVER_HOST }}
+          VITE_API_GRAPHQL_PATH: ${{ secrets.API_GRAPHQL_PATH }}
+          VITE_API_GRAPHQL_SCHEMA_PATH: ${{ secrets.API_GRAPHQL_SCHEMA_PATH }}
         run: bun run type-generate
 
-      # Step 4: Type-Check
+      # Step 4: Type-Check (conditionally skipped)
       - name: Type-Check
+        if: ${{ inputs.skip-type-check != true }}
         run: bun run type-check
 
       # Step 5: Lint Code

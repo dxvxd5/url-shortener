@@ -14,6 +14,7 @@ export default [
     ignores: [
       'node_modules/**',
       'dist/**',
+      '**/__generated__/**',
       'vite.config.ts',
       'eslint.config.js',
     ],
