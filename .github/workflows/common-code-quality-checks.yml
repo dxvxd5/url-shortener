@@ -7,6 +7,10 @@ on:
         description: 'Working directory for the checks'
         required: true
         type: string
+      skip-type-check:
+        description: 'Skip the type-check step'
+        required: false
+        type: boolean
 
     secrets:
       API_SERVER_HOST:
@@ -48,8 +52,9 @@ jobs:
           VITE_API_GRAPHQL_SCHEMA_PATH: ${{ secrets.API_GRAPHQL_SCHEMA_PATH }}
         run: bun run type-generate
 
-      # Step 4: Type-Check
+      # Step 4: Type-Check (conditionally skipped)
       - name: Type-Check
+        if: ${{ inputs.skip-type-check != true }}
         run: bun run type-check
 
       # Step 5: Lint Code

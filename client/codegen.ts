@@ -7,7 +7,6 @@ dotenvConfig();
 const config: CodegenConfig = {
   schema: `http://${process.env.VITE_API_SERVER_HOST}/${process.env.VITE_API_GRAPHQL_PATH}`,
   documents: ['src/**/*.{ts,tsx}'],
-  emitLegacyCommonJSImports: false,
   generates: {
     './src/__generated__/': {
       preset: 'client',
