@@ -8,6 +8,17 @@ on:
         required: true
         type: string
 
+    secrets:
+      API_SERVER_HOST:
+        description: 'API server host'
+        required: false
+      API_GRAPHQL_PATH:
+        description: 'API GraphQL path'
+        required: false
+      API_GRAPHQL_SCHEMA_PATH:
+        description: 'API GraphQL schema path'
+        required: false
+
 jobs:
   checks:
     runs-on: ubuntu-latest
