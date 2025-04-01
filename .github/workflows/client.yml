@@ -14,6 +14,10 @@ jobs:
     uses: ./.github/workflows/common-code-quality-checks.yml
     with:
       path: ./client
+    secrets:
+      API_SERVER_HOST: ${{ secrets.API_SERVER_HOST }}
+      API_GRAPHQL_PATH: ${{ secrets.API_GRAPHQL_PATH }}
+      API_GRAPHQL_SCHEMA_PATH: ${{ secrets.API_GRAPHQL_SCHEMA_PATH }}
 
   tests:
     uses: ./.github/workflows/common-tests.yml
