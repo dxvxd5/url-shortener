@@ -5,10 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "dev-with-type-watch": "concurrently \"vite\" \"npm run type-generate-dev:watch\"",
     "build": "tsc && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
     "type-generate": "graphql-codegen",
+    "type-generate-dev": "graphql-codegen --config codegen.dev.ts",
+    "type-generate-dev:watch": "graphql-codegen --config codegen.dev.ts --watch",
     "type-check": "tsc --noEmit",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
@@ -17,6 +20,8 @@
   },
   "dependencies": {
     "@eslint/js": "^9.17.0",
+    "@parcel/watcher": "^2.5.1",
+    "concurrently": "^9.1.2",
     "dotenv": "^16.4.7",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-config-airbnb-typescript": "^18.0.0",

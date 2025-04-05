@@ -38,6 +38,7 @@ export const resolvers: Resolvers = {
   Mutation: {
     shortenUrl: async (_, { url }, { dataSources }) => {
       // TODO: Check if short alias already exists
+      // TODO: Check if URL is valid
       return await dataSources.urlManager.create(
         new Url({
           baseUrl: url,
