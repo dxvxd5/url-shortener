@@ -9,7 +9,7 @@
     "typescript": "^5.0.0"
   },
   "scripts": {
-    "dev": "concurrently \"cd server && bun run dev\" \"cd client && bun run dev\""
+    "dev": "concurrently \"cd server && bun run dev\" \"cd client && bun run dev-with-type-watch\""
   },
   "type": "module"
 }
