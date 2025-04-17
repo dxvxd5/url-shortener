@@ -66,18 +66,7 @@ export default [
       ],
       '@typescript-eslint/consistent-type-imports': ['warn'],
       '@typescript-eslint/no-explicit-any': 'warn', // Discourage use of `any`
-
       // Import rules
-      'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-          js: 'always',
-          ts: 'always',
-          jsx: 'always',
-          tsx: 'always',
-        },
-      ],
       'import/no-extraneous-dependencies': [
         'error',
         {
