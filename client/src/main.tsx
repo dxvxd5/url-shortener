@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { App } from './App.tsx';
 
 // TODO: Add a feature to generate a QR code for the shortened URL
 // TODO: Add a list of shortened URLs with options to edit or delete
@@ -10,6 +11,6 @@ import ReactDOM from 'react-dom/client';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <div>This is the root of the app.</div>
+    <App />
   </React.StrictMode>
 );
