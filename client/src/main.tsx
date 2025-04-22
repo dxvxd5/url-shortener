@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { App } from './App.tsx';
+import { App } from './App';
+import './styles/main.css';
 
 // TODO: Add a feature to generate a QR code for the shortened URL
 // TODO: Add a list of shortened URLs with options to edit or delete

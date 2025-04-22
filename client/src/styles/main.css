@@ -1,0 +1,9 @@
+@layer reset, tokens, base;
+
+@import url('resets.css') layer(resets);
+@import url('base.css') layer(base);
+@import url('tokens.css') layer(tokens);
+
+* {
+  font-family: var(--font-family);
+}

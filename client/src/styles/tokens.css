@@ -1,0 +1,27 @@
+:root {
+  --font-family: 'Mori', sans-serif;
+
+  --color-primary: #abff85;
+  --color-primary-hover: #abff85;
+  --color-secondary: #6d28d9;
+  --color-secondary-hover: #5b21b6;
+
+  --color-text: #fffce0;
+  --color-background: #0d100f;
+  --color-border: #45463f;
+
+  --color-success: #abff85;
+  --color-error: #ef4444;
+  --color-warning: #f59e0b;
+
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 2rem;
+
+  --font-size-base: 1rem;
+
+  --border-size: 0.125rem;
+  --border-radius: 0.5rem;
+
+  --transition: 250ms ease;
+}
