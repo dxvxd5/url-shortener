@@ -16,7 +16,9 @@ export default [
       'dist/**',
       '**/__generated__/**',
       'vite.config.ts',
+      'vitest.config.ts',
       'eslint.config.js',
+      'setupTests.ts',
     ],
     languageOptions: {
       ecmaVersion: 'latest',
