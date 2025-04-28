@@ -1,6 +1,6 @@
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
-import { Checkbox } from './index';
+import { Checkbox } from '.';
 
 describe('Checkbox Component', () => {
   it('generates a unique id based on the label and links the label to the checkbox', () => {
