@@ -1,0 +1,49 @@
+.checkbox-field {
+  align-items: center;
+  border: var(--border);
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  display: flex;
+  gap: 0.5em;
+  padding: 0.5em 1em;
+}
+
+.checkbox-field:hover input:not(:checked, :focus-visible) + .checkmark {
+  border-color: var(--color-border-hover);
+}
+
+input:focus-visible + .checkmark {
+  border-color: var(--color-checked);
+}
+
+input:checked + .checkmark {
+  background-color: var(--color-checked);
+  border-color: var(--color-checked);
+  display: block;
+}
+
+input:checked + .checkmark:after {
+  display: block;
+}
+
+.checkmark {
+  border: var(--border);
+  border-radius: 50%;
+  height: 2em;
+  position: relative;
+  transition: all 0.3s ease;
+  width: 2em;
+}
+
+.checkmark::after {
+  border: solid white;
+  border-width: 0 var(--border-width-thick) var(--border-width-thick) 0;
+  content: '';
+  display: none;
+  height: 55%;
+  left: 35%;
+  position: absolute;
+  top: 15%;
+  transform: rotate(45deg);
+  width: 30%;
+}
