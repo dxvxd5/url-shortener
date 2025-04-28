@@ -60,6 +60,8 @@ export default [
         { extensions: ['.jsx', '.tsx'] },
       ],
       'react/prop-types': 'off', // Using TypeScript for prop validation
+      'react/self-closing-comp': 'error', // Enforce self-closing tags for components without children
+
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',

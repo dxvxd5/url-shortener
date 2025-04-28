@@ -33,7 +33,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
         checked={isChecked}
         onChange={handleChange}
       />
-      <span className={styles['checkmark']}></span>
+      <span className={styles['checkmark']} />
     </label>
   );
 };
