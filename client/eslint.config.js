@@ -15,10 +15,8 @@ export default [
       'node_modules/**',
       'dist/**',
       '**/__generated__/**',
-      'vite.config.ts',
-      'vitest.config.ts',
       'eslint.config.js',
-      'setupTests.ts',
+      // 'vite.config.ts',
     ],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -33,6 +31,7 @@ export default [
         ecmaFeatures: {
           jsx: true, // Enable JSX parsing
         },
+        projectService: true,
         project: './tsconfig.json', // Ensure type-aware linting
       },
     },
@@ -79,6 +78,7 @@ export default [
             '**/*.test.{js,jsx,ts,tsx}',
             '**/*.spec.{js,jsx,ts,tsx}',
             'vite.config.ts',
+            'setupTests.ts',
           ],
         },
       ],
