@@ -34,5 +34,5 @@
   - <https://stackoverflow.com/questions/26282375/difference-between-the-selectors-div-p-plus-and-div-p-tilde>
 - Animation
   There are two ways to make animations in CSS.
-  - The simpler one is [transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition). It lets you specify that when property changes in value, the transition between the initial value and the final value must be animated. It is suitable for straighfoward animations which only have two states (or keyframes): initial and final.
+  - The simpler one is [transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition). It lets you specify that when property changes in value, the transition between the initial value and the final value must be animated. It is suitable for straightforward animations which only have two states (or keyframes): initial and final.
   - For more complex animations, meaning animations with more than two keyframes, [animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation) must be used. It also provide more settings to customize the animation
