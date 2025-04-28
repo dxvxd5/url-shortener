@@ -15,8 +15,8 @@ export default [
       'node_modules/**',
       'dist/**',
       '**/__generated__/**',
-      'vite.config.ts',
       'eslint.config.js',
+      // 'vite.config.ts',
     ],
     languageOptions: {
       ecmaVersion: 'latest',
@@ -31,6 +31,7 @@ export default [
         ecmaFeatures: {
           jsx: true, // Enable JSX parsing
         },
+        projectService: true,
         project: './tsconfig.json', // Ensure type-aware linting
       },
     },
@@ -60,6 +61,8 @@ export default [
         { extensions: ['.jsx', '.tsx'] },
       ],
       'react/prop-types': 'off', // Using TypeScript for prop validation
+      'react/self-closing-comp': 'error', // Enforce self-closing tags for components without children
+
       'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
@@ -75,6 +78,7 @@ export default [
             '**/*.test.{js,jsx,ts,tsx}',
             '**/*.spec.{js,jsx,ts,tsx}',
             'vite.config.ts',
+            'setupTests.ts',
           ],
         },
       ],

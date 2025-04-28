@@ -6,7 +6,7 @@
     "concurrently": "^8.2.2"
   },
   "peerDependencies": {
-    "typescript": "^5.0.0"
+    "typescript": "^5.4.5"
   },
   "scripts": {
     "dev": "concurrently \"cd server && bun run dev\" \"cd client && bun run dev-with-type-watch\""
