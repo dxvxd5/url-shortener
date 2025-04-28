@@ -60,24 +60,14 @@ export default [
         { extensions: ['.jsx', '.tsx'] },
       ],
       'react/prop-types': 'off', // Using TypeScript for prop validation
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_' }, // Allow unused vars starting with _
       ],
       '@typescript-eslint/consistent-type-imports': ['warn'],
       '@typescript-eslint/no-explicit-any': 'warn', // Discourage use of `any`
-
       // Import rules
-      'import/extensions': [
-        'error',
-        'ignorePackages',
-        {
-          js: 'always',
-          ts: 'always',
-          jsx: 'always',
-          tsx: 'always',
-        },
-      ],
       'import/no-extraneous-dependencies': [
         'error',
         {
