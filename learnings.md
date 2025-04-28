@@ -6,7 +6,7 @@
   - `px` bad bc fixed
   - `em` bad bc font size grow the deeper you go in indentation
   - `rem` better but still fixed so non responsive
-  - `vw` responsive but can get very small or very big as widow is reduced or increased.
+  - `vw` responsive but can get very small or very big as window is reduced or increased.
   - Solution: `clamp`(`min-in-rem`, `desired in vw`, `max-in-rem`)
   - [Utopia typography](https://utopia.fyi/)
 - CSS resets
