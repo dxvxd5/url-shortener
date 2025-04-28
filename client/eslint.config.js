@@ -60,6 +60,7 @@ export default [
         { extensions: ['.jsx', '.tsx'] },
       ],
       'react/prop-types': 'off', // Using TypeScript for prop validation
+      'no-unused-vars': 'off',
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_' }, // Allow unused vars starting with _
