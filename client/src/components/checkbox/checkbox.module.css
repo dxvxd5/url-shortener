@@ -8,6 +8,10 @@
   padding: 0.5em 1em;
 }
 
+.label {
+  text-transform: capitalize;
+}
+
 .checkbox-field:hover input:not(:checked, :focus-visible) + .checkmark {
   border-color: var(--color-border-hover);
 }

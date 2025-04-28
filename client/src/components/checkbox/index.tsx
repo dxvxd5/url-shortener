@@ -24,7 +24,7 @@ export const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <label htmlFor={checkBoxId} className={styles['checkbox-field']}>
-      <span>{label}</span>
+      <span className={styles.label}>{label}</span>
       <input
         id={checkBoxId}
         // Hide the default checkbox visually but keep it accessible for screen readers
