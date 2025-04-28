@@ -12,6 +12,7 @@
 * {
   margin: 0;
   padding: 0;
+  border: none;
 }
 
 @media (prefers-reduced-motion: no-preference) {
